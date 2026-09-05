@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetDash - Dashboard de Apuestas</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: #0f0f1a; color: #e0e0e0; display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: 260px; background: #1a1a2e; padding: 24px 16px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .sidebar h1 { font-size: 22px; color: #f5c842; letter-spacing: 1px; }
+    .sidebar nav { display: flex; flex-direction: column; gap: 8px; }
+    .sidebar nav a {
+      color: #a0a0b8; text-decoration: none; padding: 10px 12px;
+      border-radius: 8px; transition: 0.2s; font-size: 15px;
+    }
+    .sidebar nav a:hover, .sidebar nav a.active { background: #2a2a3e; color: #f5c842; }
+
+    .main { flex: 1; padding: 32px; display: flex; flex-direction: column; gap: 28px; }
+
+    .header h2 { font-size: 26px; }
+    .header span { color: #888; font-size: 14px; }
+
+    .balance-card {
+      background: linear-gradient(135deg, #f5c842, #e6a800); color: #1a1a2e;
+      padding: 24px; border-radius: 16px; width: fit-content; min-width: 280px;
+    }
+    .balance-card .label { font-size: 13px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+    .balance-card .amount { font-size: 36px; font-weight: 700; margin: 8px 0; }
+    .balance-card .change { font-size: 14px; font-weight: 600; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+    .card {
+      background: #1a1a2e; border-radius: 14px; padding: 20px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .card .match { font-weight: 600; font-size: 16px; display: flex; justify-content: space-between; }
+    .card .teams { display: flex; justify-content: space-between; align-items: center; margin: 8px 0; }
+    .card .teams span { font-size: 15px; }
+    .card .teams .vs { color: #666; font-size: 13px; }
+    .card .odds { display: flex; gap: 8px; }
+    .card .odds button {
+      flex: 1; padding: 8px; border: 1px solid #333; border-radius: 8px;
+      background: #2a2a3e; color: #f5c842; font-weight: 600; font-size: 14px;
+      cursor: pointer; transition: 0.2s;
+    }
+    .card .odds button:hover { background: #f5c842; color: #1a1a2e; border-color: #f5c842; }
+    .card .time { font-size: 12px; color: #888; text-align: right; }
+
+    .badge { background: #2a2a3e; padding: 4px 10px; border-radius: 20px; font-size: 11px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>BetDash</h1>
+    <nav>
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">Deportes</a>
+      <a href="#">En vivo</a>
+      <a href="#">Historial</a>
+      <a href="#">Depositar</a>
+    </nav>
+    <div style="margin-top: auto; font-size: 13px; color: #555;">v1.0.0</div>
+  </aside>
+
+  <main class="main">
+    <div class="header">
+      <h2>Dashboard</h2>
+      <span>Bienvenido de nuevo, Ronald</span>
+    </div>
+
+    <div class="balance-card">
+      <div class="label">Saldo disponible</div>
+      <div class="amount">$1,284.50</div>
+      <div class="change">+$142.30 (12.4%) último mes</div>
+    </div>
+
+    <h3 style="font-size: 18px;">Próximos eventos</h3>
+    <div class="grid">
+      <div class="card">
+        <div class="match"><span>⚽ Champions League</span> <span class="badge">Popular</span></div>
+        <div class="teams"><span>Real Madrid</span><span class="vs">vs</span><span>Bayern Múnich</span></div>
+        <div class="odds"><button>1.85</button><button>3.40</button><button>4.20</button></div>
+        <div class="time">Sáb 20:45</div>
+      </div>
+
+      <div class="card">
+        <div class="match"><span>🏀 NBA</span> <span class="badge">En vivo</span></div>
+        <div class="teams"><span>Lakers</span><span class="vs">vs</span><span>Celtics</span></div>
+        <div class="odds"><button>2.10</button><button>1.80</button></div>
+        <div class="time">Transmitiendo ahora</div>
+      </div>
+
+      <div class="card">
+        <div class="match"><span>🎾 ATP Finals</span></div>
+        <div class="teams"><span>Alcaraz</span><span class="vs">vs</span><span>Sinner</span></div>
+        <div class="odds"><button>1.95</button><button>1.95</button></div>
+        <div class="time">Dom 15:00</div>
+      </div>
+
+      <div class="card">
+        <div class="match"><span>⚽ Premier League</span></div>
+        <div class="teams"><span>Manchester City</span><span class="vs">vs</span><span>Arsenal</span></div>
+        <div class="odds"><button>2.30</button><button>3.10</button><button>3.00</button></div>
+        <div class="time">Dom 17:30</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
